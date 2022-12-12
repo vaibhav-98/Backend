@@ -74,4 +74,94 @@ router.get("/shoes", function(req, res){
     res.send("dummy shoes response")
 })
 
+//==============Assingment =================//
+
+router.get ("/movies", function (req , resp) {
+
+    let arr = ["captain America" , "hulk" , "Uri" , "3 ideot"]
+    resp.send (arr)
+
+    
+})
+
+
+router.get ("/movies/:indexNumber" , function (req ,res) {
+
+    let arr = ["captain America" , "hulk" , "Uri" , "3 ideot"]
+    let index1=req.params.indexNumber
+
+    if  (index1 > arr.length || index1==arr.length) {
+
+        res.send ("enter a valid index")
+    }
+    else {
+
+        res.send (arr[index1])
+    }
+
+})
+
+router.get ("/films" , function (req,res) {
+
+    let arr1 = [
+        {
+            id:1,
+            name:"captain Americ"
+        },
+        {
+            id: 2,
+            name: "hulk"
+        },
+        {
+            id : 3,
+            name : "uri"
+        },
+        {
+            id : 4,
+            name : "3 ideot"
+        }
+    ]
+
+    res.send (arr1)
+       
+})
+
+
+
+router.get ("/films/:filmsId" , function (req,res) {
+
+    let arr1 = [
+        {
+            id:1,
+            name:"captain Americ"
+        },
+        {
+            id: 2,
+            name: "hulk"
+        },
+        {
+            id : 3,
+            name : "uri"
+        },
+        {
+            id : 4,
+            name : "3 ideot"
+        }
+    ]
+
+    let ID = req.params.filmsId
+
+    if (ID > arr1.length || ID == arr1.length) {
+        
+        res.send ("no films present by thi id")
+    }
+    else {
+
+        res.send( arr1[ID])
+    }
+
+    res.send (arr1)
+       
+})
+
 module.exports = router;
